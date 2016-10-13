@@ -11,4 +11,5 @@ RUN apk add --no-cache --virtual .fetch-deps \
   && rm /oauth2_proxy.tar.gz \
   && apk del .fetch-deps
 
-ENTRYPOINT ["/oauth2_proxy"]
+EXPOSE 4180
+ENTRYPOINT ["/oauth2_proxy", "--http-address=0.0.0.0:4180"]
